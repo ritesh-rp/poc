@@ -1,0 +1,171 @@
+{
+	"info": {
+		"_postman_id": "6020ed4e-96af-4fa3-b10f-e7a44e7bd6dd",
+		"name": "Enrich Service",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "27360010"
+	},
+	"item": [
+		{
+			"name": "analysis/batch",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"request\": [\n    {\n      \"mapping\": {\n        \"migrationId\": \"mig_14_4ccd6956_f0a9_4b22_b6e0_c203f2ba4a8a\",\n        \"tableName\": \"Account\",\n        \"recordId\": \"00TDn00000APopAMAT\"\n      },\n      \"query\": {\n        \"type\": \"Account\",\n        \"context\": {\n          \"name\": \"Abbott Laboratories\",\n          \"country\": \"Canada\",\n          \"industry\": \"Healthcare\"\n        }\n      }\n    },\n    {\n      \"mapping\": {\n        \"migrationId\": \"mig_14_4ccd6956_f0a9_4b22_b6e0_c203f2ba4a8a\",\n        \"tableName\": \"Profile\",\n        \"recordId\": \"00TDn00000bxQeAMAU\"\n      },\n      \"query\": {\n        \"type\": \"Profile\",\n        \"context\": {\n          \"fullName\": \"Ritesh Raj\",\n\t  \"firstName\": \"Ritesh\",\n\t  \"lastName\": \"Raj\",\n\t  \"emailAddress\": \"ritesh88822@gmail.com\",\n\t  \"phone\": \"+1234567890\",\n\t  \"jobTitle\": \"Senior Analyst\",\n\t  \"hashedEmail\": \"hashedEmailValue\",\n\t  \"lastUpdatedDateAfter\": \"2023-01-01\",\n\t  \"validDateAfter\": \"2023-01-01\",\n\t  \"companyId\": \"companyIdentifier123\",\n\t  \"companyName\": \"softprodigy\",\n\t  \"contactAccuracyScoreMin\": 75\n        }\n      }\n    }\n  ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/analysis/batch",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"analysis",
+						"batch"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "analysis/batch multi-data",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"request\": [\n    {\n      \"mapping\": {\n        \"migrationId\": \"mig_14_4ccd6956_f0a9_4b22_b6e0_c203f2ba4a8a\",\n        \"tableName\": \"Account\",\n        \"recordId\": \"00TDn00000APopAMAT\"\n      },\n      \"query\": {\n        \"type\": \"Account\",\n        \"context\": {\n          \"name\": \"Abbott Laboratories\",\n          \"country\": \"Canada\",\n          \"industry\": \"Healthcare\"\n        }\n      }\n    },\n    {\n      \"mapping\": {\n        \"migrationId\": \"mig_14_4ccd6956_f0a9_4b22_b6e0_c203f2ba4a8z\",\n        \"tableName\": \"Profile\",\n        \"recordId\": \"00TDn00000bxQeAMAU\"\n      },\n      \"query\": {\n        \"type\": \"Profile\",\n        \"context\": {\n          \"fullName\": \"Ritesh Raj\",\n\t  \"firstName\": \"Ritesh\",\n\t  \"lastName\": \"Raj\",\n\t  \"emailAddress\": \"ritesh88822@gmail.com\",\n\t  \"phone\": \"+1234567890\",\n\t  \"jobTitle\": \"Senior Analyst\",\n\t  \"hashedEmail\": \"hashedEmailValue\",\n\t  \"lastUpdatedDateAfter\": \"2023-01-01\",\n\t  \"validDateAfter\": \"2023-01-01\",\n\t  \"companyId\": \"companyIdentifier123\",\n\t  \"companyName\": \"softprodigy\",\n\t  \"contactAccuracyScoreMin\": 75\n        }\n      }\n    },\n    {\n      \"mapping\": {\n        \"migrationId\": \"mig_14_4ccd6956_f0a9_4b22_b6e0_c203f2ba4a8y\",\n        \"tableName\": \"Profile\",\n        \"recordId\": \"00TDn00000bxQeAMAV\"\n      },\n      \"query\": {\n        \"type\": \"Profile\",\n        \"context\": {\n          \"fullName\": \"Ritesh Raj 2\",\n\t  \"firstName\": \"Ritesh\",\n\t  \"lastName\": \"Raj 2\",\n\t  \"emailAddress\": \"ritesh88822@gmail.com\",\n\t  \"phone\": \"+1234567890\",\n\t  \"jobTitle\": \"Senior Analyst\",\n\t  \"hashedEmail\": \"hashedEmailValue\",\n\t  \"lastUpdatedDateAfter\": \"2023-01-01\",\n\t  \"validDateAfter\": \"2023-01-01\",\n\t  \"companyId\": \"companyIdentifier123\",\n\t  \"companyName\": \"softprodigy\",\n\t  \"contactAccuracyScoreMin\": 75\n        }\n      }\n    }\n  ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/analysis/batch",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"analysis",
+						"batch"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "result/mapping",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/result/mapping?migrationId",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"result",
+						"mapping"
+					],
+					"query": [
+						{
+							"key": "migrationId",
+							"value": null
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "result/id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/result/id/?uuid=a4d9de33-41be-4676-a241-8d2c6f2992ab",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"result",
+						"id",
+						""
+					],
+					"query": [
+						{
+							"key": "uuid",
+							"value": "a4d9de33-41be-4676-a241-8d2c6f2992ab"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/result/mapping/batch/",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"request\": [\n    {\n      \"migrationId\": \"mig_14_4ccd6956_f0a9_4b22_b6e0_c203f2ba4a8z\",\n      \"tableName\": \"Profile\",\n      \"recordId\": \"00TDn00000bxQeAMAU\"\n    },\n    {\n      \"migrationId\": \"mig_14_4ccd6956_f0a9_4b22_b6e0_c203f2ba4a8y\",\n      \"tableName\": \"Profile\",\n      \"recordId\": \"00TDn00000bxQeAMAV\"\n    }\n\n  ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/result/mapping/batch/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"result",
+						"mapping",
+						"batch",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

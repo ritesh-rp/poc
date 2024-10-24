@@ -1,0 +1,127 @@
+version: "3.1"
+
+stories:
+
+- story: happy path
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_great
+  - action: utter_happy
+
+
+- story: Bot abilities inquiry followed by seeking help
+  steps:
+    - intent: bot_abilities
+    - action: utter_bot_abilities
+    - intent: help
+    - action: utter_help
+
+
+- story: Book restaurant after getting null bookings
+  steps:
+    - intent: get_my_bookings
+    - action: get_booking_details
+    - intent: affirm_create_new_booking
+    - action : restaurant_form
+    - active_loop : restaurant_form
+
+- story: cuisine interjection
+  steps:
+    - intent: request_restaurant
+    - action: restaurant_form
+    - active_loop: restaurant_form
+    - slot_was_set:
+      - requested_slot: cuisine
+    - intent: explain
+    - action: utter_explain_cuisine
+    - action: restaurant_form
+
+- story: number of people interjection
+  steps:
+    - intent: request_restaurant
+    - action: restaurant_form
+    - active_loop: restaurant_form
+    - slot_was_set:
+      - requested_slot: num_people
+    - intent: explain
+    - action: utter_explain_num_people
+    - action: restaurant_form
+
+
+- story: outdoor seating interjection
+  steps:
+    - intent: request_restaurant
+    - action: restaurant_form
+    - active_loop: restaurant_form
+    - slot_was_set:
+      - requested_slot: outdoor_seating
+    - intent: explain
+    - action: utter_explain_outdoor_seating
+    - action: restaurant_form
+
+
+
+- story: booking interjection
+  steps:
+    - intent: request_restaurant
+    - action: restaurant_form
+    - active_loop: restaurant_form
+    - slot_was_set:
+      - requested_slot: cuisine
+    - intent: explain
+    - action: utter_explain_cuisine
+    - action: restaurant_form
+    - slot_was_set:
+      - requested_slot: num_people
+    - intent: explain
+    - action: utter_explain_num_people
+    - action: restaurant_form
+    - slot_was_set:
+      - requested_slot: outdoor_seating
+    - intent: explain
+    - action: utter_explain_outdoor_seating
+    - action: restaurant_form
+ 
+
+- story: Create a ticket
+  steps:
+    - intent: initiate_refund
+    - action: get_last_five_bookings
+    - intent: provide_booking_id
+    - action: utter_confirm_raise_ticket
+    - intent: get_one_line_concern
+    - action: create_ticket
+
+
+- story: return video play
+  steps:
+    - intent: order_return_video
+    - action: return_order_video
+
+
+
+- story : Get restaurant's address
+  steps:
+  - intent: request_restaurant_address
+  - slot_was_set:
+    - requested_slot: restaurant_name
+  - action : action_address_and_contact
+
+
+- story : Get restaurant's address2
+  steps:
+  - intent: request_restaurant_address
+  - action: utter_ask_restaurant_name
+  - intent : provide_restaurant_name
+  - action : action_address_and_contact
+
+
+- story : fetch hotel details
+  steps:
+  - intent: get_hotel_details
+  - action: action_get_latest_three_booked_hotels
+  - intent: provide_hotel_id
+  - action: utter_hotel_info_options
+  - intent: set_info_type
+  - action: action_address_and_contact

@@ -1,0 +1,121 @@
+{% extends "navbar.html" %}
+{% block "content" %}
+
+<style>
+  .theme-color{
+    background-color:#4787b6;
+  }
+
+
+  .section-div {
+    background-color: #f0f0f0; /* Set background color */
+    border: 1px solid #ccc; /* Add a border */
+    border-radius: 5px; /* Add some border radius for rounded corners */
+    padding: 10px; /* Add padding to create space between content and border */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow */
+    margin-top: 20px;
+  }
+</style>
+<div class = "container-fluid p-4">
+  <div class="row">
+    <ol class="breadcrumb p-2"style="background-color: #f0f0f0" >
+      <li class="breadcrumb-item mt-2">  
+        <a href="/">Batches</a>
+      </li>
+      <li class="breadcrumb-item mt-2">
+        <a href="/batch_profiles/{{batch_id}}">{{batch_id}}</a>
+      </li>
+    </ol>
+  </div>
+  <div class="row section-div p-4">
+    <div class="col-sm-5">
+      <form class="form-inline" action="/batch_profiles/{{batch_id}}" method="post">
+        <div class="row">
+          <div class="col">
+            <input class="form-control" type="search" name="search_item" required placeholder="Search UUID" aria-label="Search" value={{search_item}} >
+          </div>
+          <div class="col">
+            <button class="btn theme-color" style ="color:white; background-color: #0D2045;"  type="submit">Search</button>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="col-sm-3 offset-sm-4 d-flex justify-content-end">
+      <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle w-auto" style ="color:white; background-color: #0D2045;" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Filter Batches
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <h6 class="dropdown-header">Status</h6>
+          <a class="dropdown-item" href="?status=pending">Pending</a>
+          <a class="dropdown-item" href="?status=progress">In progress</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class ="row section-div">
+    <table class="table  table-hover text-center" style ="font-size: small">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Uuid</th>
+          <th>Batch Id</th>
+          <th>Name</th>
+          <th>Table</th>
+          <th>record Id</th>
+          <th>Status</th>
+        <tr>
+      </thead>
+      {% for item in profiles %}
+      <tr onclick="location.href='/data/{{batch_id}}/{{item.uuid}}';">
+      <td >{{ profiles.start_index|add:forloop.counter0 }}</td>
+      <td>{{item.uuid}}</td>
+      <td>{{batch_id}}</td>
+      <td>{{item.batchProfile__batchprofilepayload__fullName}}</td>
+      <td>{{item.tableName}}</td>
+      <td>{{item.recordId}}</td>
+      <td>{{item.status}}</td>
+      </tr>
+  {% endfor %}
+    </table>
+
+    <nav aria-label="Page navigation ">
+      <ul class="pagination justify-content-end ">
+        {% if profiles.has_previous %}
+        <li class="page-item">
+          <a class="page-link" href="?page=1&status={{ status }}" aria-label="Previous">
+            <span aria-hidden="true">&laquo;</span>
+          </a>
+        </li>
+        {% endif %}
+        {% for n in profiles.paginator.page_range %}
+          {% if profiles.number == n %}
+            <li class="page-item active">
+              <span class="page-link">{{ n }}</span>
+            </li>
+          {% elif n > profiles.number|add:'-3' and n < profiles.number|add:'3' %}
+            <li class="page-item"><a class="page-link" href="?page={{ n }}&status={{ status }}">{{ n }}</a></li>
+          {% endif %}
+        {% endfor %}
+        {% if profiles.has_next %}
+          <li class="page-item">
+            <a class="page-link" href="?page={{ profiles.paginator.num_pages }}&status={{ status }}" aria-label="Next">
+              <span aria-hidden="true">&raquo;</span>
+            </a>
+          </li>
+        {% endif %}
+      </ul>
+    </nav>
+  </div>
+
+</div>
+
+
+
+
+
+{% endblock %}
+
+
+

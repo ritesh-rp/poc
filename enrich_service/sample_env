@@ -1,0 +1,36 @@
+
+
+
+##db_cred##
+
+# DATABASE_HOST=customercity1.c29v1welcmzq.us-east-1.rds.amazonaws.com
+# DATABASE_PORT=5432
+# DATABASE_NAME=customercity
+# schema=cc_enrichment
+# DATABASE_USER=cc_enrichment_user
+# DATABASE_PASSWORD=wZigAZuCV9n4L7sHNijk
+
+DATABASE_HOST=localhost
+DATABASE_PORT=5432
+DATABASE_NAME=enrich_service
+schema=cc_enrichment
+DATABASE_USER=postgres
+DATABASE_PASSWORD=password
+
+
+##celery##
+
+# CELERY_BROKER_URL="redis://redis:6379/0"
+# CELERY_RESULT_BACKEND="redis://redis:6379/0"
+
+CELERY_BROKER_URL = 'redis://127.0.0.1:6379'
+CELERY_RESULT_BACKEND = 'django-db'
+
+## linkedin credentials
+LINKEDIN_EMAIL = 
+LINKEDIN_PASSWORD = 
+
+# Docker Env
+ALLOWED_HOSTS=localhost 127.0.0.1
+PORT=8003
+BROKER_URL="redis://redis:6379/0"

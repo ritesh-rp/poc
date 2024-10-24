@@ -1,0 +1,34 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    background-color: #dfdfdf;
+
+  }
+  
+  #app {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  
+  .container {
+    flex: 1;
+  }
+  
+  .logo {
+    height: 40px;
+    margin-right: 10px;
+  }
+  .bg-black {
+    background-color: black !important;
+  }
+
+  .footer {
+    background-color: black ;
+    width: 100%;
+  }
+
+  .uploader {
+    max-width: 500px;
+    margin: auto;
+  }

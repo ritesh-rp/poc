@@ -1,0 +1,65 @@
+{% extends "navbar.html" %}
+{% block "content" %}
+
+<div class = "container-fluid p-4">
+<div class="row">
+<ol class="breadcrumb p-2"style="background-color: #f0f0f0" >
+  <li class="breadcrumb-item mt-2">  
+    <a href="/">Batches</a>
+  </li>
+  <li class="breadcrumb-item mt-2">
+    <a href="/batch_profiles/{{batch_id}}">{{batch_id}}</a>
+  </li>
+  <li class="breadcrumb-item mt-2">
+    <a href="/data/{{batch_id}}/{{uuid}}">{{uuid}}</a>
+  </li>
+</ol>
+</div>
+</div>
+
+<div class="container">
+  
+  <div class = "row">
+    {% if not scraped_data %}
+    <center><h3 style="color: gray; margin-top: 20px;">No data to Display</h3></center>
+    {% else %}
+    <div class="d-flex p-1" style="align-items: center; justify-content: center;">
+        {% if scraped_data.picture %}
+        <div class="">
+          <img src="{{scraped_data.picture}}" alt="profilepicture" style="height: 300px; width: 300px; border-radius: 50px;">
+        </div>
+        {% endif %}
+        {% if scraped_data.companyLogo %}
+        <div class="mx-5">
+          <h5 style="color:grey">Current Company</h5>
+          <img src="{{scraped_data.companyLogo}}" alt="profilepicture" style="height: 200px; width: 200px; border-radius: 50px;">
+        </div>
+        {% endif %}
+    </div>
+
+    {% for key,value in scraped_data.items %}
+    <table class ="table table-striped table-bordered text-left">
+      <tr>
+        <th style="width: 30%" scope="row">{{key}}</th>
+        {% if value.0 %}
+        <td>
+          {% if value.0.items %}
+            {% for kk in value %}
+              {% for k,v in kk.items %}
+              <p><b>{{k}}</b> : {{v}}</p>
+              {% endfor %}
+            {% endfor %}
+          {% else %}
+            {{value}}
+          {% endif %}
+        </td>
+        {% else %}
+          <td >{{value}}</td>
+        {% endif %}
+      </tr>
+    </table>
+      {% endfor %}
+    {% endif %}
+  </div>
+</div>
+{% endblock %}

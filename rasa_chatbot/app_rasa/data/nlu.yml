@@ -1,0 +1,456 @@
+version: "3.1"
+nlu:
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - hello there
+    - good morning
+    - good evening
+    - moin
+    - hey there
+    - let's go
+    - hey dude
+    - goodmorning
+    - goodevening
+    - good afternoon
+- intent: goodbye
+  examples: |
+    - cu
+    - good by
+    - cee you later
+    - good night
+    - bye
+    - goodbye
+    - have a nice day
+    - see you around
+    - bye bye
+    - see you later
+- intent: deny
+  examples: |
+    - no
+    - n
+    - never
+    - I don't think so
+    - don't like that
+    - no way
+    - not really
+    - No
+- intent: mood_great
+  examples: |
+    - perfect
+    - great
+    - amazing
+    - feeling like a king
+    - wonderful
+    - I am feeling very good
+    - I am great
+    - I am amazing
+    - I am going to save the world
+    - super stoked
+    - extremely good
+    - so so perfect
+    - so good
+    - so perfect
+- intent: mood_unhappy
+  examples: |
+    - my day was horrible
+    - I am sad
+    - I don't feel very well
+    - I am disappointed
+    - super sad
+    - I'm so sad
+    - sad
+    - very sad
+    - unhappy
+    - not good
+    - not very good
+    - extremly sad
+    - so saad
+    - so sad
+- intent: bot_challenge
+  examples: |
+    - are you a bot?
+    - are you a human?
+    - am I talking to a bot?
+    - am I talking to a human?
+    - Who are you?
+- intent: bot_abilities
+  examples: |
+    - What can i ask you?
+    - What do you do?
+    - What do you understand?
+    - How can you help me?
+    - What can you do?
+- intent: change_my_address
+  examples: |
+    - I need to change my address
+    - hello I want to change my address
+    - From where we can change the delivery address?
+    - What can I do to change my address?
+    - How can I change my address
+    - Change my address
+- intent: reset_my_password
+  examples: |
+    - I need to change my account password
+    - How can i reset my password
+    - Can we change the password?
+    - Reset my address
+- intent: available_payment_methods
+  examples: |
+    - What are the different payment methods that are supported on the platform?
+    - what are the different payment methods that are supported?
+    - what are the payment options available?
+    - Is it possible to pay by [credit card](payment_method) ?
+    - Is it possible to pay by [COD](payment_method)?
+    - Is COD((payment_method)) supported?
+    - Is [Cash on Delivery](payment_method) supported?
+    - Is [EMI supported](payment_method)?
+    - can we do payment through [EMI](payment_method)?
+    - can we do payment through [Cash](payment_method)?
+- intent: average_delivery_time
+  examples: |
+    - What is the expected delivery time?
+    - How long does it take you to deliver your products?
+- intent: work_timings
+  examples: |
+    - What are your timings?
+    - When do you work?
+    - Do you work on [sunday](day)
+    - Do you work on [saturday](day)
+    - Do you work on [monday](day)
+    - Do you work on [tuesday](day)
+    - Do you work on [wednesday](day)
+    - Do you work on [thursday](day)
+    - when do you close your store?
+    - What is the closing time of the store?
+    - What are your work timings?
+- intent: help
+  examples: |
+    - I need [customer care](person) help
+    - need [customer care](person) support
+    - please connect me to [support](person)
+    - How can i connect to [customer support](person)
+    - Connect me to [support](person)
+- intent: initiate_refund
+  examples: |
+    - I want a refund
+    - I want a refund on my order
+    - How can i get a refund?
+    - I want a refund.
+    - I want my money back.
+    - where is my refund
+    - I have an issue with my reservation
+    - please raise a ticket
+    - I want to raise a ticket
+    - please create a ticket
+    - create a ticket please
+    - raise a ticket
+    - How can I raise a ticket?
+    - I have a problem
+    - I have 1 issue
+    - I want to report
+- intent: refund_answer
+  examples: |
+    - I got a defective product
+    - I didn't receive my order
+    - My order items are wrong
+    - Order items are missing
+    - I have got a wrong product.
+    - I got a defective product, How can I return it?
+- intent: refund_time_question
+  examples: |
+    - How long would it take the refund to reflect?
+    - When will i get the refund
+    - Refund time?
+    - when will the refund receive?
+- intent: ticket_resolution_time
+  examples: |
+    - How long will it take to resolve my ticket?
+    - When will the ticket get solved?
+    - How long would it take to solve the issue?
+- intent: track_order
+  examples: |
+    - Track my order?
+    - location of my order?
+    - Can you help in tracking my order
+    - How can i know the location of my order?
+- intent: order_status
+  examples: |
+    - What is the status of my order
+    - Can you tell me the status of my order
+    - Order status?
+    - Whats the update on my order?
+    - When will I receive my order?
+- intent: coupon_codes
+  examples: |
+    - Do you have any discount coupon codes?
+    - please give me some coupon codes
+    - are there any coupon codes?
+- intent: platform_services
+  examples: |
+    - Tell me about the services that you provide.
+    - Tell me about your products
+    - What products do you sell?
+    - what does you company do?
+- intent: request_restaurant
+  examples: |
+    - im looking for a restaurant
+    - I want to book a hotel
+    - I want to reserve a restaurant
+    - I want to book a hotel for [5](number) people
+    - can i get [swedish](cuisine) food in any area
+    - a restaurant that serves [caribbean](cuisine) food
+    - id like a restaurant
+    - im looking for a restaurant that serves [mediterranean](cuisine) food
+    - can i find a restaurant that serves [chinese](cuisine)
+    - I'd like to make a reservation at a restaurant.
+    - Can you help me secure a table at a nice restaurant?
+    - I'm interested in booking a restaurant for an upcoming event.
+    - Is it possible to reserve a spot for dinner at a restaurant?
+    - I'm looking to make a reservation for two at a popular restaurant.
+    - Can you assist me in booking a table at a local eatery?
+    - I want to schedule a reservation at a restaurant for a special occasion.
+    - Please help me arrange a booking at a recommended restaurant.
+    - I'm inquiring about the possibility of reserving a table at your restaurant.
+    - Could you guide me through the process of making a restaurant reservation?
+    - I want to book a restaurant for [Italian](cuisine) cuisine for [5](number) people
+    - Please book a restaurant for [French](cuisine) cuisine for [6](number) people
+    - Please create a reservation for [French](cuisine) cuisine for [6](number) people
+- intent: inform
+  examples: |
+    - [afghan](cuisine) food
+    - how bout [asian oriental](cuisine)
+    - what about [indian](cuisine) food
+    - uh how about [turkish](cuisine) type of food
+    - um [english](cuisine)
+    - im looking for [tuscan](cuisine) food
+    - id like [moroccan](cuisine) food
+    - for [ten](number) people
+    - [2](number) people
+    - [5](number)
+    - for [three](number) people
+    - just [one](number) person
+    - book for [seven](number) people
+    - 2 please
+    - nine people
+- intent: get_my_bookings
+  examples: |
+    - show booking
+    - Can you fetch my bookings.
+    - Please fetch my reservations.
+    - please give my bookings list
+    - please remind me of my bokings
+    - please remind me of my hotel reservations
+    - Give me my bookings
+    - show me my bookings
+    - please show me my bookings
+    - Are there any bookings for me?
+    - List my bookings
+    - list my  reservations
+    - Please tell me the details of my bookings
+    - Fetch the details of my booking
+    - whats the date of my booking ?
+    - what is the date of my my hotel reservations?
+- intent: affirm_create_new_booking
+  examples: |
+    - Yes, please
+    - Yes, create a booking
+    - yes
+    - please create one
+    - ok
+    - okay
+    - create a booking
+    - Okay create a booking
+    - yup
+    - YES
+    - Ya
+- intent: cancel_my_reservation
+  examples: |
+    - How can I cancel my booking
+    - Cancel my booking
+    - I want to cancel my booking.
+    - please cancel my booking.
+    - Please Cancel my resrevation
+    - I want to cancel my reservation.
+    - I don't want to go
+    - delete booking
+- intent: provide_booking_id
+  examples: |
+    - My booking ID is [BKNG-123hsd](booking_id)
+    - My reservation id is [BKNG-123hsd](booking_id)
+    - The booking ID is [BKNG-45hse6](booking_id)
+    - I have a reservation with ID [BKNG-hyu789](booking_id)
+    - The ID for my booking is [BKNG-h3j4x6](booking_id)
+    - [BKNG-h3j4x6](booking_id)
+    - [BKNG-vg3d5g](booking_id)
+    - [sdf12332](booking_id)
+    - [231123sa](booking_id)
+    - [12345](booking_id)
+    - [12dsawrc5](booking_id)
+    - [bg44g5](booking_id)
+    - [bgjhgfvjsfvs](booking_id)
+    - My booking id is [BKNG-123hsd](booking_id)
+    - Booking id -  [Bsadd43](booking_id)
+    - Reservation id - [123fsdwef](booking_id)
+- intent: booking_id_for_refund
+  examples: |
+    - Raise Refund - [BKNG-123hsd](booking_id)
+- intent: explain
+  examples: |
+    - Why do you want that
+    - I don't want to share this information.
+    - What will you do with that
+    - For what purpose
+    - what is the purpose of that
+    - why
+- intent: order_return_video
+  examples: |
+    - video tutorial to return an item
+    - how can I return my order
+    - steps to return a order
+- intent: get_one_line_concern
+  examples: |
+    - I want to raise_ticket- [I dont want to go](ticket_reason)
+    - I want to raise_ticket- [](ticket_reason)
+    - I want to raise_ticket- [Food was not good](ticket_reason)
+    - I want to raise_ticket- [Restaurant service was very bad](ticket_reason)
+    - I want to raise_ticket- [Staff was unfriendly](ticket_reason)
+    - I want to raise_ticket- [I didn't get to dine](ticket_reason)
+    - I want to raise_ticket- [Restaurant was closed on booking day](ticket_reason)
+    - I want to raise_ticket- [I went to the wrong restaurant due to address misunderstanding](ticket_reason)
+    - I want to raise_ticket- [I don't want to go](ticket_reason)
+    - I want to raise_ticket- [No specific reason](ticket_reason)
+    - I want to raise_ticket- [Food was not good](ticket_reason)
+    - I want to raise_ticket- [Restaurant service was very bad](ticket_reason)
+    - I want to raise_ticket- [Staff was unfriendly](ticket_reason)
+    - I want to raise_ticket- [I didn't get to dine](ticket_reason)
+    - I want to raise_ticket- [Restaurant was closed on the booking day](ticket_reason)
+    - I want to raise_ticket- [I went to the wrong restaurant due to address misunderstanding](ticket_reason)
+    - I want to raise_ticket- [My order was incorrect](ticket_reason)
+    - I want to raise_ticket- [I received the wrong food item](ticket_reason)
+    - I want to raise_ticket- [I faced issues with the online payment](ticket_reason)
+    - I want to raise_ticket- [I need a refund for my order](ticket_reason)
+    - I want to raise_ticket- [The delivery was very late](ticket_reason)
+    - I want to raise_ticket- [I received a damaged item](ticket_reason)
+    - I want to raise_ticket- [The restaurant didn't honor the discount](ticket_reason)
+    - I want to raise_ticket- [I faced issues with the mobile app](ticket_reason)
+    - I want to raise_ticket- [The restaurant canceled my order without notice](ticket_reason)
+    - I want to raise_ticket- [I was overcharged for my order](ticket_reason)
+    - I want to raise_ticket- [I faced issues with the website](ticket_reason)
+    - I want to raise_ticket- [The restaurant denied my reservation](ticket_reason)
+    - I want to raise_ticket- [I didn't receive a confirmation for my booking](ticket_reason)
+    - I want to raise_ticket- [The restaurant was overcrowded](ticket_reason)
+    - I want to raise_ticket- [I faced issues with the delivery address](ticket_reason)
+    - I want to raise_ticket- [The restaurant didn't follow my dietary preferences](ticket_reason)
+    - I want to raise_ticket- [I didn't receive my loyalty points](ticket_reason)
+    - I want to raise_ticket- [I faced issues with the in-app navigation](ticket_reason)
+    - I want to raise_ticket- [The restaurant didn't provide the promised amenities](ticket_reason)
+    - I want to raise_ticket- [I was charged for canceled reservations](ticket_reason)
+    - I want to raise_ticket- [The restaurant didn't provide the reserved seating](ticket_reason)
+    - I want to raise_ticket- [I faced issues with the pick-up service](ticket_reason)
+    - I want to raise_ticket- [The restaurant was not wheelchair accessible](ticket_reason)
+    - I want to raise_ticket- [I received expired food items](ticket_reason)
+    - I want to raise_ticket- [The restaurant didn't have my pre-ordered items](ticket_reason)
+    - I want to raise_ticket- [I was refused entry at the restaurant](ticket_reason)
+    - I want to raise_ticket- [I faced issues with the online menu](ticket_reason)
+    - I want to raise_ticket- [The restaurant didn't provide the promised discounts](ticket_reason)
+    - I want to raise_ticket- [I faced issues with the customer support](ticket_reason)
+    - I want to raise_ticket- [I was double-charged for my order](ticket_reason)
+    - I want to raise_ticket- [I didn't receive a confirmation email for my reservation](ticket_reason)
+    - I want to raise_ticket- [The restaurant didn't have the items listed on the menu](ticket_reason)
+    - I want to raise_ticket- [I faced issues with the drive-thru service](ticket_reason)
+    - I want to raise_ticket- [The restaurant didn't provide the promised freebies](ticket_reason)
+    - I want to raise_ticket- [I faced issues with the loyalty program](ticket_reason)
+    - I want to raise_ticket- [The restaurant didn't provide the reserved parking](ticket_reason)
+    - I want to raise_ticket- [I faced issues with the order tracking](ticket_reason)
+    - I want to raise_ticket- [The restaurant didn't have the listed specials](ticket_reason)
+    - I want to raise_ticket- [I faced issues with the Wi-Fi at the restaurant](ticket_reason)
+    - I want to raise_ticket- [The restaurant didn't honor the advertised promotions](ticket_reason)
+    - I want to raise_ticket- [I received the wrong bill](ticket_reason)
+    - I want to raise_ticket- [I faced issues with the restaurant's cleanliness](ticket_reason)
+
+
+- intent: request_restaurant_address
+  examples: |
+    - What is the address of [Navile nash](restaurant_name)
+    - Where is  [Gourmet Delights](restaurant_name) located
+    - Where can I find the [Savory Bites Grill](restaurant_name)
+    - Can you tell me the location of [Urban Spice Kitchen](restaurant_name)
+    - What's the address for [Navile Nash](restaurant_name)
+    - Please provide the whereabouts of [Navile Nash](restaurant_name)
+    - Where exactly is [Flavors of Elegance](restaurant_name) situated?
+    - I'm curious about the location of [Navile Nash](restaurant_name)
+    - Could you give me directions to [Flavors of Elegance](restaurant_name)
+    - Tell me where I can locate [Soleil Sunset Grill](restaurant_name)
+    - What's the physical address of [Navile Nash](restaurant_name)
+    - Provide me with information about the location of [Navile Nash](restaurant_name)
+    - Where can I visit [Soleil Sunset Grillh](restaurant_name)
+    - I'm looking for the address of [Navile Nash](restaurant_name)
+    - Could you share the whereabouts of [Navile Nash](restaurant_name)
+    - What is the precise location of [Sizzler's Delight](restaurant_name)
+    - I'd like to know where [Sizzler's Delight](restaurant_name) is.
+    - i want to know the address of a restaurant.
+    - please tell me the address of my restaurant.
+    - How can i reach to my resaturant.
+    - tell me the address of hotel
+- intent: provide_restaurant_name
+  examples: |
+    - Find address of hotelname- [The Green hotel](restaurant_name)
+    - Find address of hotelname- [The Flavors of Elegance](restaurant_name)
+    - Find address of hotelname- [The Sizzler's Delight](restaurant_name)
+    - Find address of hotelname- [The Hotel Mango Tree](restaurant_name)
+    - Find address of hotelname- [The Hotel Mango Tree](restaurant_name)
+    - Find address of hotelname- [The Hotel Mango Tree](restaurant_name)
+    - Find address of hotelname- [The Hotel Mango Tree](restaurant_name)
+    - Find address of hotelname- [The dil mange more](restaurant_name)
+    - Find address of hotelname- [The dil mange less](restaurant_name)
+
+
+- intent: get_hotel_details
+  examples: |
+    - show details of hotel
+    - Can you provide me with details about the hotel?
+    - I'm interested in learning more about the hotel. What details can you share?
+    - What information do you have about the hotel? I want to know the details.
+    - Tell me about the amenities and details of the hotel, please.
+    - I want to get some details about the hotel. Can you help with that?
+    - Provide me with information about the hotel, including any important details.
+    - Share details about the hotel, such as its facilities and services.
+    - I'm looking for specific details about the hotel. What can you tell me?
+    - What are the details of the hotel's rooms and accommodations?
+    - I want to know more about the hotel. Please give me the details.
+
+- intent: provide_hotel_id
+  examples: |
+    - [htl-ab123](hotel_id)
+    - [htl-vg456](hotel_id)
+    - [htl-ab896](hotel_id)
+    - [htl-vg123](hotel_id)
+    - [htl-ab147](hotel_id)
+    - [htl-vg369](hotel_id)
+
+- intent: set_info_type
+  examples: |
+    - [hotel_address](info_type)
+    - [hotel_contact](info_type)
+
+- intent: inquire_services
+  examples: |
+    - What services do you provide?
+    - Tell me about your services
+    - Tell me about your products
+    - What can you do?
+    - List your offerings
+    - What services are available?
+    - What solutions do you offer?
+    - Provide details about your service portfolio
+    - Enlighten me on your range of services
+    - What kind of assistance can I expect?
+    - Share information about the services you deliver
+    - Elaborate on the services at your disposal
+    - What options do you have for customers?
+    - Clarify the scope of your service offerings
+    - Outline the types of services you provide
+    - Can you brief me on the services in your repertoire?
